@@ -1,0 +1,12 @@
+# Python.
+migrations
+__pycache__
+
+# DB.
+db.sqlite3
+
+# Virtual env.
+venv
+
+# Media files.
+media
