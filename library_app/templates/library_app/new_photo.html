@@ -1,0 +1,11 @@
+{% extends 'library_app/base.html' %}
+
+{% block content %}
+	<h2>Добавление фото.</h2>
+
+	<form action="{% url 'library_app:new_photo' %}" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button name="submit">добавить</button>
+	</form>
+{% endblock %}

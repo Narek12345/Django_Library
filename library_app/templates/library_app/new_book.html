@@ -1,0 +1,11 @@
+{% extends 'library_app/base.html' %}
+
+{% block content %}
+	<h2>Добавление книг.</h2>
+	
+	<form action="{% url 'library_app:new_book' %}" method="post" enctype="multipart/form-data">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button name="submit">добавить</button>
+	</form>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Django Library</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'library_app/base.css' %}">
+</head>
+<body>
+	<h1><a href="{% url 'library_app:index' %}">Django Library.</a></h1>
+	<div>
+		<b>
+			<a href="{% url 'library_app:new_book' %}">Добавить книгу</a> —
+			<a href="{% url 'library_app:new_song' %}">Добавить песню</a> —
+			<a href="{% url 'library_app:new_photo' %}">Добавить фото</a> —
+			<a href="{% url 'library_app:new_video' %}">Добавить видео</a>
+		</b>
+	</div>
+
+	<!-- Add red line. -->
+	<hr>
+
+	{% block content %}
+	{% endblock %}
+
+</body>
+</html>
