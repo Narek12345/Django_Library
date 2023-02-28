@@ -9,7 +9,18 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'library_app/base.css' %}">
 </head>
 <body>
-	<h1><a href="{% url 'library_app:index' %}">Django Library.</a></h1>
+	<h1><a href="{% url 'library_app:index' %}">Django Library</a></h1>
+
+	<div class="registration">
+		{% if user.is_authenticated %}
+			Hi, {{ user.username }}
+			<a href="{% url 'users:logout' %}">выйти</a>
+		{% else %}
+			<a href="{% url 'users:login' %}">Войти</a>
+			<a href="{% url 'users:register' %}">Зарегестрироваться</a>
+		{% endif %}
+	</div>
+
 	<div>
 		<b>
 			<a href="{% url 'library_app:new_book' %}">Добавить книгу</a> —

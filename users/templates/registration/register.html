@@ -1,0 +1,9 @@
+{% extends 'library_app/base.html' %}
+
+{% block content %}
+	<form action="{% url 'users:register' %}" method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button name="submit">зарегестрироваться</button>
+	</form>
+{% endblock %}
