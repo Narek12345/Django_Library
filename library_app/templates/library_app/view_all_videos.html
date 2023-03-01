@@ -1,0 +1,13 @@
+{% extends 'library_app/base.html' %}
+
+{% block content %}
+	<h2>Просмотр добавленных видео.</h2>
+	{% if db_info %}
+		{% for video in db_info %}
+			<h2><a href="{% url 'library_app:view_video' video.id %}">{{ video.title }}</a></h2>
+			<p>Время публикаций: {{ video.publication_date }}</p>
+		{% endfor %}
+	{% else %}
+		{{ error_info }}
+	{% endif %}
+{% endblock %}

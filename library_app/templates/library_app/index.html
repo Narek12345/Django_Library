@@ -2,4 +2,13 @@
 
 {% block content %}
 	<h2>Всем привет, это главная страница.</h2>
+	{% if user.is_authenticated %}
+		<h3>Просмотреть добавленные мною данные:</h3>
+		<a href="{% url 'library_app:view_all_books' %}">Книги</a> —
+		<a href="{% url 'library_app:view_all_songs' %}">Песни</a> —
+		<a href="{% url 'library_app:view_all_photos' %}">Фото</a> —
+		<a href="{% url 'library_app:view_all_videos' %}">Видео</a>
+	{% else %}
+		<p>Вы либо не зарегестрировались, либо не вошли в свой акканут. Пожалуйста, <a href="{% url 'users:login' %}">войдите</a> или <a href="{% url 'users:register' %}">зарегестрируйтесь</a>.</p>
+	{% endif %}
 {% endblock %}
